@@ -1,0 +1,66 @@
+{
+   "results": [
+      {
+         "gender": "female",
+         "name": {
+            "title": "Mrs",
+            "first": "Ava",
+            "last": "Lewis"
+         },
+         "location": {
+            "street": {
+               "number": 2062,
+               "name": "Clark Avenue"
+            },
+            "city": "Whanganui",
+            "state": "Hawke'S Bay",
+            "country": "New Zealand",
+            "postcode": 49402,
+            "coordinates": {
+               "latitude": "48.0185",
+               "longitude": "98.5065"
+            },
+            "timezone": {
+               "offset": "-10:00",
+               "description": "Hawaii"
+            }
+         },
+         "email": "ava.lewis@example.com",
+         "login": {
+            "uuid": "278132e4-7369-4bc3-a5b7-2a8ea0b95b07",
+            "username": "lazydog692",
+            "password": "phoebe",
+            "salt": "oAJRWmku",
+            "md5": "2132856722bb6e75a61ed1458173eb37",
+            "sha1": "e5f39576cdc34b427a9c7161347e67a40a42a608",
+            "sha256": "cde757ea898e2600851e48197afa506086486fdfdfed5f4270f7ba350a9232aa"
+         },
+         "dob": {
+            "date": "1975-07-25T04:26:36.683Z",
+            "age": 47
+         },
+         "registered": {
+            "date": "2020-08-17T01:53:42.294Z",
+            "age": 2
+         },
+         "phone": "(075)-370-4109",
+         "cell": "(012)-699-0815",
+         "id": {
+            "name": "",
+            "value": null
+         },
+         "picture": {
+            "large": "https://randomuser.me/api/portraits/women/61.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/61.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/61.jpg"
+         },
+         "nat": "NZ"
+      }
+   ],
+   "info": {
+      "seed": "81ff77cd0faff538",
+      "results": 1,
+      "page": 1,
+      "version": "1.4"
+   }
+}

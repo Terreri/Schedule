@@ -18,6 +18,7 @@ def cria_db():
 
     conn.close()
 
+
 def salva_contato(contato):
     conn = sqlite3.connect("agenda.db")
 
@@ -30,7 +31,7 @@ def salva_contato(contato):
         UPDATE contatos
         SET nome =  ?, telefone = ?
         WHERE id = ?""", (contato.nome, contato.telefone, contato.id_contato,))
-    
+
     else:
         cursor.execute("""
         INSERT INTO contatos(nome, email, telefone) VALUES (?,?,?)""", lista)
@@ -40,6 +41,7 @@ def salva_contato(contato):
     print("Dados salvos com sucesso")
 
     conn.close()
+
 
 def busca_contatos():
     conn = sqlite3.connect("agenda.db")
@@ -53,11 +55,13 @@ def busca_contatos():
     FROM contatos""")
 
     for linha in cursor.fetchall():
-        contatos.append(Contato(id_contato = linha[0], nome= linha[1], email = linha[2], telefone = linha[3]))
+        contatos.append(
+            Contato(id_contato=linha[0], nome=linha[1], email=linha[2], telefone=linha[3]))
 
     conn.close()
 
     return contatos
+
 
 def busca_por_nome(nome):
     conn = sqlite3.connect("agenda.db")
@@ -72,11 +76,13 @@ def busca_por_nome(nome):
     WHERE nome = ?""", [nome])
 
     for linha in cursor.fetchall():
-        contatos.append(Contato(id_contato = linha[0], nome= linha[1], email = linha[2], telefone = linha[3]))
+        contatos.append(
+            Contato(id_contato=linha[0], nome=linha[1], email=linha[2], telefone=linha[3]))
 
     conn.close()
 
     return contatos
+
 
 def busca_por_email(email):
     conn = sqlite3.connect("agenda.db")
@@ -89,13 +95,15 @@ def busca_por_email(email):
     WHERE email = ?""", [email])
 
     contato = None
-    
+
     for linha in cursor.fetchall():
-        contato = Contato(id_contato = linha[0], nome= linha[1], email = linha[2], telefone = linha[3])
+        contato = Contato(
+            id_contato=linha[0], nome=linha[1], email=linha[2], telefone=linha[3])
 
     conn.close()
 
     return contato
+
 
 def deleta_contato(email):
     conn = sqlite3.connect("agenda.db")
@@ -112,6 +120,7 @@ def deleta_contato(email):
 
     conn.close()
 
+
 def limpa_agenda():
     conn = sqlite3.connect('agenda.db')
 
@@ -125,5 +134,3 @@ def limpa_agenda():
     print('Formatação feita')
 
     conn.close()
-
-    
