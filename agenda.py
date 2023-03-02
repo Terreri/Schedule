@@ -14,7 +14,7 @@ def novo_contato():
     email = input("Digite um email para o contato: ")
     telefone = input("Digite um telefone para o contato (xx xxxxx-xxxx): ")
 
-    contato = busca_contato_email(email)
+    contato = busca_por_email(email)
 
     if contato:
         print(f"O email {email} já esta cadastrado")
@@ -36,7 +36,13 @@ def lista_contatos():
 def busca_contato_nome(nome):
     table = PrettyTable(["Nome", "Email", "Telefone"])
 
-    for contato in busca_por_nome(nome):
+    verif = busca_por_nome(nome)
+
+    if len(verif) == 0:
+        print(f'Não existem contatos com o nome: {nome}')
+        return
+
+    for contato in verif:
         table.add_row([contato.nome, contato.email, contato.telefone])
 
     print(table)
@@ -44,15 +50,18 @@ def busca_contato_nome(nome):
 
 def busca_contato_email(email):
     resultado = busca_por_email(email)
+    table = PrettyTable(["Nome", "Email", "Telefone"])
 
     if not resultado:
+        print(f'Não existe contato com o email: {email}')
         return
 
-    return resultado
+    table.add_row([resultado.nome, resultado.email, resultado.telefone])
+    print(table)
 
 
 def altera_contato(email):
-    contato = busca_contato_email(email)
+    contato = busca_por_email(email)
 
     if not contato:
         print(f"Não existe o contato com o email: {email}")
@@ -64,12 +73,13 @@ def altera_contato(email):
     contato.nome = nome
     contato.telefone = telefone
 
+    salva_contato(contato)
     lista_contatos()
 
 
 def exclui_contato(email):
 
-    contato = busca_contato_email(email)
+    contato = busca_por_email(email)
 
     if not contato:
         print(f"Não existe um contato com o email: {email}")

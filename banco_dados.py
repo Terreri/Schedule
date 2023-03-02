@@ -105,6 +105,7 @@ def busca_por_email(email):
     return contato
 
 
+
 def deleta_contato(email):
     conn = sqlite3.connect("agenda.db")
 
